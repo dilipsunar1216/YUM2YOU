@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Food Vendors at {{ station.name }}</h2>
+    {% for vendor in vendors %}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">{{ vendor.name }}</h5>
+            <p class="card-text">{{ vendor.description }}</p>
+            <img src="{{ url_for('static', filename='img/' ~ vendor.image_url) }}" class="card-img-top" alt="Image of {{ vendor.name }}">
+            <h6>Menu:</h6>
+            <ul>
+                {% for item in vendor.menu.items %}
+                <li>{{ item.name }} - ₹{{ item.price }}</li>
+                {% endfor %}
+            </ul>
+            <h6>Contact Info:</h6>
+            <p>{{ vendor.contact_info }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

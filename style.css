@@ -1,0 +1,9 @@
+/* Custom CSS styles */
+
+body {
+    padding-top: 56px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
